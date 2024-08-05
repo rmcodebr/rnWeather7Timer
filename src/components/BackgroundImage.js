@@ -1,14 +1,12 @@
 import React from "react";
-import { View, Image, StyleSheet, Dimensions } from "react-native";
-
-const { width, height } = Dimensions.get("window");
+import { View, Image } from "react-native";
 
 const BackgroundImage = ({ children }) => {
   return (
-    <View style={styles.container}>
+    <View className="flex-1">
       <Image
-        source={require("../../assets/img/weatherNight.png")} // Replace with your image URL or local asset
-        style={styles.backgroundImage}
+        source={require("../../assets/img/weatherNight.png")}
+        className="absolute h-full w-full opacity-30"
         resizeMode="cover"
       />
       {children}
@@ -16,16 +14,4 @@ const BackgroundImage = ({ children }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  backgroundImage: {
-    position: "absolute",
-    width: width,
-    height: height,
-    top: 0,
-    left: 0,
-  },
-});
 export default BackgroundImage;
